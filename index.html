@@ -3,14 +3,43 @@
     <head>
         <title>My Art Gallery :D</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body{
+                font-family: "Times New Roman", Times, serif;
+            }
+        </style>
     </head>
     <body class="text-center bg-blue-100 p-10">
-        <h1 class="text-violet-500 text-7xl font-bold">My Art Gallery :D</h1>
+        <h1 class="text-violet-600 text-7xl font-bold font-Times">My Art Gallery :D</h1>
         <p>Here's my fun art projects</p>
         <h2 class="mt-8">About me</h2>
         <p>I'm Elias, a highschool senior in NJ. I'm classically trained in the Oil, Watercolor, and Charcoal mediums. Outside of art I'm an avid programmer, chess addict, and swimmer. Now that I'm finally done grinding for USACO Plat, I'm using my free time to actually finish paintings :p</p>
         <h2 class="mt-8">Awards</h2>
         <p>2025 Singapore World Portrait Painting Competition Silver - Amateur Youth Division, 2026 Scholastic Art & Writing Awards Gold and Silver Key</p>
-        <img src="assets/cat.jpg" alt="meow" class="w-64 rounded-lg shadow-lg mx-auto" />
+        <img src="assets/entrance.gif" alt="enter" class="w-220 rounded-lg mx-auto" />
+        <img src="assets/palettes/palette_1.jpg" alt="palette" class="h-72 object-cover" id="palettes"/>
+        <img src="assets/entrance.gif" alt="enter" class="w-220 rounded-lg mx-auto" />
+        <img src="assets/entrance.gif" alt="enter" class="w-220 rounded-lg mx-auto" />
+        <img src="assets/entrance.gif" alt="enter" class="w-220 rounded-lg mx-auto" />
+        <img src="assets/entrance.gif" alt="enter" class="w-220 rounded-lg mx-auto" />
+
+        <script>
+          var sources = ["assets/palettes/palette_1.jpg", "assets/palettes/palette_2.jpg", "assets/palettes/palette_3.jpg", "assets/palettes/palette_4.jpg", "assets/palettes/palette_5.jpg", "assets/palettes/palette_6.jpg"];
+          const img = document.getElementById("palettes");
+          var start = (window.innerHeight * 0.85);
+          var end = (window.innerHeight * 0.15);
+          var curr = 0;
+          function updatePalette(){
+            const rect = img.getBoundingClientRect();
+            if(Math.floor((start - rect.top) / (start - end) * 5) > curr){
+              curr = Math.floor((start - rect.top) / (start - end) * 5);
+              img.src = sources[curr];
+            }
+          }
+
+          window.addEventListener('scroll', function(){
+            updatePalette();
+          })
+        </script>
     </body>
 </html>
