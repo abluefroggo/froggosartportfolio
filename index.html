@@ -38,10 +38,14 @@
           var start = (window.innerHeight *  0.1);
           var end = (window.innerHeight * -0.15);
           var curr = 0;
+
           function updatePalette(){
             const rect = img.getBoundingClientRect();
-            if(Math.floor((start - rect.top) / (start - end) * 5) != curr){
-              curr = Math.floor((start - rect.top) / (start - end) * 5);
+            const rawIdx = Math.floor((start - rect.top) / (start - end) * sources.length)
+            const next = Math.max(0, Math.min(rawIdx, sources.length - 1));
+
+            if(next != curr){
+              curr = next;
               img.src = sources[curr];
             }
           }
